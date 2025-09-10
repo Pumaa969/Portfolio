@@ -13,7 +13,7 @@ body{
 nav a{
     text-decoration: none;
     background-color: #000000a4;
-    padding: 8px 20px;
+    padding: 6px 15px;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s;
     margin-bottom: 10px;
@@ -24,7 +24,7 @@ nav ul{
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 15px;
+    gap: 5px;
 }
 
 img{
@@ -70,7 +70,6 @@ p{
     text-align: center;
     color: #f1f0f0;
     line-height: 1.5;
-    text-align: center;
 }
 
 h2{
@@ -129,4 +128,22 @@ blockquote{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
     color:white;
+}
+
+.htas{
+    flex-wrap: wrap;
+}
+.htas img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.htas ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 1px;
 }
