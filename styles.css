@@ -1,13 +1,13 @@
 body{
     justify-content: center;
     background-color:#000000 !important;
-    background: url("imagenes/wave.gif") no-repeat center center;
+    background: url("imagenes/wave.gif") no-repeat center center fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto mono', monospace;
-    background-size: cover;    
+    background-size: 99% 100%;    
 }
 
 nav a{
@@ -84,7 +84,12 @@ footer p{
 #proyectos a{
     display: flex;
     justify-content: center;
+    margin:10px;
 }
+#contacto nav ul{
+    padding: 0;
+}
+
 #contacto nav img{
     border-radius:0px;
 }
@@ -100,27 +105,15 @@ footer p{
     padding: 8px 8px;
 }
 
-.up{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(181, 213, 255, 0.07);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    padding:5px 5px;
-}
-
 .github{
     display: flex;
     justify-content: center;
 }
 .github a:hover{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    transition-duration: 0.2s;
-    padding: 20px 20px;
+    border: 1px solid white;
+    border-radius: 50px;
+    margin:1px;
+    padding:1px;
 }
 
 blockquote{
@@ -145,4 +138,28 @@ blockquote{
     gap: 10px;
     list-style: none;
     padding: 1px;
+}
+.up{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.up button{
+    background-color: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.225);
+    background-color: rgba(8, 23, 32, 0);
+    backdrop-filter: blur(15px);
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+}
+.up button img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.up button:hover{
+    border: 1px solid white;
+    transition-duration: 0.3s;
 }
