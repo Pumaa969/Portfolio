@@ -81,11 +81,7 @@ footer p{
     color: #f1f0f0;
     font-size: 0.8em;
 }
-#proyectos a{
-    display: flex;
-    justify-content: center;
-    margin:10px;
-}
+
 #contacto nav ul{
     padding: 0;
 }
@@ -95,12 +91,11 @@ footer p{
 }
 
 #contacto nav a:hover{
-    border: 1px solid white;
+    border: 1px solid rgb(255, 255, 255);
 }
 #contacto nav a{
     justify-content: center;
     display:flex;
-    background-color: rgba(255, 255, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0.13);
     padding: 8px 8px;
 }
@@ -109,11 +104,13 @@ footer p{
     display: flex;
     justify-content: center;
 }
+.github a{
+    border: 1px solid rgba(255, 255, 255, 0.227);
+}
 .github a:hover{
-    border: 1px solid white;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 50px;
-    margin:1px;
-    padding:1px;
+    transition-duration: 0.3s;
 }
 
 blockquote{
@@ -139,27 +136,27 @@ blockquote{
     list-style: none;
     padding: 1px;
 }
-.up{
+
+#up{
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-}
-
-.up button{
-    background-color: rgba(255, 255, 255, 0.13);
-    border: 1px solid rgba(255, 255, 255, 0.225);
-    background-color: rgba(8, 23, 32, 0);
-    backdrop-filter: blur(15px);
-    border-radius: 50px;
+    z-index: 99;
+    background-color: #00000029;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.13);
     padding: 10px;
+    border-radius:60px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
-.up button img{
+#up img{
     width: 30px;
     height: 30px;
     object-fit: contain;
 }
-.up button:hover{
+#up:hover{
     border: 1px solid white;
     transition-duration: 0.3s;
 }
