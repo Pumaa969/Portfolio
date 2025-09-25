@@ -19,4 +19,7 @@ function botonup(){
 const fecha = new Date();
 const opcion = { year: 'numeric', month: 'long', day: 'numeric' };
 document.getElementById("fecha").innerHTML = fecha.toLocaleDateString('es-ES', opcion);
-
+document.getElementById("refbutton").onclick = function() {
+    let refdiv = document.getElementById("referencias").getElementsByClassName("refcontent")[0];
+    refdiv.style.display = (refdiv.style.display === "block") ? "none" : "block";
+};
