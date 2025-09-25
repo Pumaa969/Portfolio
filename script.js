@@ -15,3 +15,8 @@ function botonup(){
         behavior: "smooth"
     });
 }
+
+const fecha = new Date();
+const opcion = { year: 'numeric', month: 'long', day: 'numeric' };
+document.getElementById("fecha").innerHTML = fecha.toLocaleDateString('es-ES', opcion);
+
