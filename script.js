@@ -16,10 +16,22 @@ function botonup(){
     });
 }
 
-const fecha = new Date();
-const opcion = { year: 'numeric', month: 'long', day: 'numeric' };
-document.getElementById("fecha").innerHTML = fecha.toLocaleDateString('es-ES', opcion);
-document.getElementById("refbutton").onclick = function() {
-    let refdiv = document.getElementById("referencias").getElementsByClassName("refcontent")[0];
-    refdiv.style.display = (refdiv.style.display === "block") ? "none" : "block";
-};
+document.addEventListener("DOMContentLoaded", function() {
+    const fecha = new Date();
+    const opcion = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("fecha").innerHTML = fecha.toLocaleDateString('es-ES', opcion);
+    
+    // Configurar todos los botones de referencia
+    const refButtons = document.getElementsByClassName("refbutton");
+    for (let i = 0; i < refButtons.length; i++) {
+        refButtons[i].onclick = function() {
+            let parent = this.closest('.menudesp');
+            let refdiv = parent.querySelector('.refcontent');
+            if (refdiv) {
+                refdiv.style.display = (refdiv.style.display === "block") ? "none" : "block";
+                parent.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        };
+    }
+});
+
