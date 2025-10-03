@@ -35,3 +35,54 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const form = document.getElementById('formulario');
+const emailInput = document.getElementById('email');
+const mensajeInput = document.getElementById('mensaje');
+const nombreInput = document.getElementById('nombre');
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = emailInput.value;
+    const mensaje = mensajeInput.value;
+    const nombre = nombreInput.value;
+    if (email && mensaje && nombre) {
+        alert('Gracias por contactarme, ' + nombre + '! He recibido tu mensaje y pronto seras contactado.');
+        form.reset();
+    } else if (!email.includes('@')) {
+        alert('Por favor, ingresa un correo electrónico válido.');
+    } else if (mensaje.length < 10) {
+        alert('El mensaje debe tener al menos 10 caracteres.');
+    } else if (nombre.length < 3) {
+        alert('El nombre debe tener al menos 3 caracteres.');
+    } else if (!email.match(emailRegex)){
+        alert('Por favor, ingresa un correo electrónico válido.');
+    } else {
+        alert('Por favor, completa todos los campos del formulario.');
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById('formulario');
+
+    function saveFormData() {
+        const fromData={
+            nombre: document.getElementById('nombre').value,
+            email: document.getElementById('email').value,
+            mensaje: document.getElementById('mensaje').value
+        };
+
+        localStorage.setItem('formData', JSON.stringify(fromData));
+    }
+
+    FormData.addEventListener('submit',function(){
+        event.preventDefault();
+        saveFormData();
+        alert('Datos guardados en el almacenamiento local.');
+        form.reset();
+    });
+
+    form.querySelectorAll('input, textarea').forEach(input => {
+        input.addEventListener('input', saveFormData);
+    });
+});
+//verificar que no anda
