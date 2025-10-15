@@ -49,6 +49,127 @@ a {
     border-radius: 10px;
 }
 
+#cambiarTema{
+    position:fixed;
+    top: 20px;
+    left:20px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.225);
+    border-radius: 50px;
+    padding: 8px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+#cambiarTema:hover{
+    border: 1px solid white;
+    transition-duration: 0.3s;
+}
+
+body.dark {
+    background-image: url('imagenes/wave.gif');
+}
+
+body.light{
+    background-image: url('imagenes/wave2.gif');
+}
+
+/* Estilos para tema oscuro */
+body.dark p {
+    color: #f1f0f0;
+}
+
+body.dark h2 {
+    color: #f1f0f0;
+}
+
+body.dark nav a {
+    color: #f1f0f0;
+    background-color: #000000a4;
+}
+
+body.dark section {
+    border: 1px solid rgba(255, 255, 255, 0.225);
+    background-color: rgba(8, 23, 32, 0);
+}
+
+body.dark blockquote {
+    color: white;
+}
+
+body.dark form label {
+    color: white;
+}
+
+body.dark form input, body.dark form textarea {
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background-color: #00000029;
+    color: white;
+}
+
+body.dark footer p {
+    color: #f1f0f0;
+}
+
+/* Estilos para tema claro */
+body.light p {
+    color: #2c2c2c;
+}
+
+body.light h2 {
+    color: #2c2c2c;
+}
+
+body.light nav a {
+    color: #2c2c2c;
+    background-color: #ffffff57;
+}
+
+body.light nav a:hover {
+    border: 1px solid #2c2c2c;
+}
+
+body.light section {
+    border: 1px solid rgba(0, 0, 0, 0.225);
+    background-color: rgba(255, 255, 255, 0.029);
+}
+
+body.light blockquote {
+    color: #2c2c2c;
+}
+
+body.light form label {
+    color: #2c2c2c;
+}
+
+body.light form input, body.light form textarea {
+    border: 1px solid rgba(0, 0, 0, 0.244);
+    background-color: #ffffff29;
+    color: #2c2c2c;
+}
+
+body.light footer p {
+    color: #2c2c2c;
+}
+
+body.light #contacto nav a{
+    background-color: rgba(35, 35, 35, 0.444);
+}
+
+body.dark #contacto nav a{
+    background-color: rgba(35, 35, 35, 0.444);
+}
+
+body.light .github a{
+    background-color: rgba(35, 35, 35, 0.444);
+}
+
+body.dark .github a{
+    background-color: rgba(35, 35, 35, 0.444);
+}
+
+
 section{
     border: 1px solid rgba(255, 255, 255, 0.225);
     justify-content: center;
@@ -245,3 +366,4 @@ form button{
 form button:hover{
     background-color: #333333;
 }
+

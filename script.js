@@ -1,6 +1,6 @@
 
 let boton=document.getElementById("up");
-
+// boton de scroll up
 window.onscroll=function(){
     if(document.body.scrollTop>300 || document.documentElement.scrollTop>300){
         boton.style.display="block";
@@ -16,12 +16,13 @@ function botonup(){
     });
 }
 
+// Fecha actual en el footer y funcionalidad de los botones de referencias
+
 document.addEventListener("DOMContentLoaded", function() {
     const fecha = new Date();
     const opcion = { year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("fecha").innerHTML = fecha.toLocaleDateString('es-ES', opcion);
     
-    // Configurar todos los botones de referencia
     const refButtons = document.getElementsByClassName("refbutton");
     for (let i = 0; i < refButtons.length; i++) {
         refButtons[i].onclick = function() {
@@ -35,54 +36,70 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+ // Conj de constantes para utilizar en las validaciones y almacenamiento
+
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const form = document.getElementById('formulario');
 const emailInput = document.getElementById('email');
 const mensajeInput = document.getElementById('mensaje');
 const nombreInput = document.getElementById('nombre');
+
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     const email = emailInput.value;
     const mensaje = mensajeInput.value;
     const nombre = nombreInput.value;
-    if (email && mensaje && nombre) {
-        alert('Gracias por contactarme, ' + nombre + '! He recibido tu mensaje y pronto seras contactado.');
-        form.reset();
-    } else if (!email.includes('@')) {
-        alert('Por favor, ingresa un correo electrónico válido.');
-    } else if (mensaje.length < 10) {
-        alert('El mensaje debe tener al menos 10 caracteres.');
-    } else if (nombre.length < 3) {
+    
+    // Validaciones
+    if (!nombre || nombre.length < 3) {
         alert('El nombre debe tener al menos 3 caracteres.');
-    } else if (!email.match(emailRegex)){
+        return;
+    }
+    if (!email || !email.match(emailRegex)) {
         alert('Por favor, ingresa un correo electrónico válido.');
-    } else {
-        alert('Por favor, completa todos los campos del formulario.');
+        return;
     }
+    if (!mensaje || mensaje.length < 10) {
+        alert('El mensaje debe tener al menos 10 caracteres.');
+        return;
+    }
+    
+    // Guarda Datos en Local Storage
+    const datos = {
+        nombre: nombre,
+        email: email,
+        mensaje: mensaje
+    };
+    
+    localStorage.setItem('formularioDatos', JSON.stringify(datos));
+    
+    console.log('nombre: ', nombre);
+    console.log('email: ', email);
+    console.log('mensaje: ', mensaje);
+    
+    alert('Gracias por contactarme, ' + nombre + ' He recibido tu mensaje y pronto serás contactado. Los datos han sido guardados.');
+    form.reset();
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById('formulario');
+//boton de cambiar tema
 
-    function saveFormData() {
-        const fromData={
-            nombre: document.getElementById('nombre').value,
-            email: document.getElementById('email').value,
-            mensaje: document.getElementById('mensaje').value
-        };
+const togglebutton=document.getElementById('cambiarTema');
+const themeicon=document.getElementById('themeicon');
+const body=document.body;
+const imagen=document.getElementById('fotomia');
 
-        localStorage.setItem('formData', JSON.stringify(fromData));
+togglebutton.addEventListener('click', ()=>{
+    body.classList.toggle('dark');
+    body.classList.toggle('light');
+
+    body.classList.contains('dark');
+    if(body.classList.contains('dark')){
+        themeicon.src="imagenes/sol.png";
+        imagen.src="imagenes/fotomia.jpg";
+        themeicon.alt="Modo Claro";
+    }else{
+        themeicon.src="imagenes/luna.png";
+        imagen.src="imagenes/fotomianoche.jpg";
+        themeicon.alt="Modo Oscuro";
     }
-
-    FormData.addEventListener('submit',function(){
-        event.preventDefault();
-        saveFormData();
-        alert('Datos guardados en el almacenamiento local.');
-        form.reset();
-    });
-
-    form.querySelectorAll('input, textarea').forEach(input => {
-        input.addEventListener('input', saveFormData);
-    });
 });
-//verificar que no anda
