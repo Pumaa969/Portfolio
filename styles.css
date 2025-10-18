@@ -75,7 +75,6 @@ body.light{
     background-image: url('imagenes/wave2.gif');
 }
 
-/* Estilos para tema oscuro */
 body.dark p {
     color: #f1f0f0;
 }
@@ -112,7 +111,7 @@ body.dark footer p {
     color: #f1f0f0;
 }
 
-/* Estilos para tema claro */
+
 body.light p {
     color: #2c2c2c;
 }

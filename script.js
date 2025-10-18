@@ -64,7 +64,7 @@ form.addEventListener('submit', function(event) {
         return;
     }
     
-    // Guarda Datos en Local Storage
+    // guarda datos en local storage
     const datos = {
         nombre: nombre,
         email: email,
