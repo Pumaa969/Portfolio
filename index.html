@@ -102,7 +102,7 @@
         <a class="refbutton"><img class="refimg" src="imagenes/flecha.png" alt="flechaabajo"></a>
         <h2 class="reftext">Te Contacto</h2>
         </div>
-        <div class="refcontent">
+        <div cla0ss="refcontent">
             <form id="formulario">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Juan Doe" >
@@ -112,6 +112,20 @@
                 <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." ></textarea>
                 <button type="submit">Enviar</button>
             </form>
+        </div>
+    </section>
+    <section id="weather">
+        <div class="weather-title">
+            <h2>Clima Actual</h2>
+        </div>
+        <div class="weather-content">
+            <p id="location"></p>
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+        <div class="weather-camp">
+            <input type="text" id="cityInput" placeholder="Ingresa el nombre de la ciudad">
+            <button id="getWeatherBtn" onclick="obtenerClima()">Obtener Clima</button>
         </div>
     </section>
     <footer>

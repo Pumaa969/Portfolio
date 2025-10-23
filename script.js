@@ -103,3 +103,26 @@ togglebutton.addEventListener('click', ()=>{
         themeicon.alt="Modo Oscuro";
     }
 });
+
+//clima
+function obtenerClima(){
+    const apiKey='800c1d51542983f03c8d479eef55895b';
+    const ciudad = document.getElementById('cityInput').value;
+    const url=`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`
+    fetch(url)
+    .then(response => {
+        if(!response.ok){
+            throw new Error('Ciudad no encontrada');
+        }
+        return response.json();
+    })
+    .then(data=>{
+        console.log(data);
+        document.getElementById('location').innerText = data.name;
+        document.getElementById('temperature').innerText = data.main.temp + ' °C';
+        document.getElementById('description').innerText = data.weather[0].description.toUpperCase();
+        let icon= data.weather[0].icon;
+        
+    })
+
+}
