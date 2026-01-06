@@ -106,7 +106,7 @@ togglebutton.addEventListener('click', ()=>{
 
 //clima
 function obtenerClima(){
-    const apiKey='800c1d51542983f03c8d479eef55895b';
+    const apiKey='--';
     const ciudad = document.getElementById('cityInput').value;
     const url=`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`
     fetch(url)
